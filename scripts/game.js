@@ -469,11 +469,7 @@ const $window = $(window);
 const $btnStart = $('#btn-start');
 
 $btnStart.click(function(){ game.init(false); $(this).attr('disabled', 'disabled'); });
-
 $window.on('keydown', function(e){ game.ship.move(e); game.ship.fire(e); });
-
 $window.on('keyup', function(e){ game.ship.stopMove(e); });
-
 game.modal.btnClose.on('click', function(){ game.modal.close(); $btnStart.removeAttr('disabled'); });
-
 game.modal.btnPlayAgain.on('click', function(){ game.modal.close(); game.init(true); });
