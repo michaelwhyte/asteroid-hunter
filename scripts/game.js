@@ -168,9 +168,11 @@ class Asteroid {
     _setProperties(){
         this.minSize = 15;
         this.maxSize = 80;
+        this.minRotationSpeed = 200;
+        this.maxRotationSpeed = 1500;
         this.width = this._genRanNum(this.minSize, this.maxSize);
         this.height = this.width * 1.06;
-        this.rotationSpeed = this._genRanNum(200, 1500);
+        this.rotationSpeed = this._genRanNum(this.minRotationSpeed, this.maxRotationSpeed);
         this.hitValue = Math.floor(this.width) * 3;
         this.destroyValue = Math.floor(this.width) * 10;
         this.strength = this._setStrength();
@@ -246,7 +248,7 @@ class Asteroid {
         });
         this.el.stop();
         this.el.attr({'src': './images/asteroid.png', 'alt': 'Asteroid.'});
-        this.rotationSpeed = this._genRanNum(200, 1500);
+        this.rotationSpeed = this._genRanNum(this.minRotationSpeed, this.maxRotationSpeed);
         this.hitValue = Math.floor(this.width) * 3;
         this.destroyValue = Math.floor(this.width) * 10;
         this.strength = this._setStrength();
