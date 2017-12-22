@@ -1,4 +1,4 @@
-// Dodge Game
+// Asteroid Hunter Game
 class GameBoard {
     constructor(){
         this.el = $('#gameboard');
