@@ -1,4 +1,4 @@
-# asteroid-hunter
+# Asteroid Hunter
 A side scrolling shooter game written in HTML / CSS / JS with the jQuery Library and the QTransform plugin
 
 ## Game Objective
