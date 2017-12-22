@@ -293,7 +293,7 @@ class Stats {
 
     updateScore(hitPoints, asteroidDestroyed, destroyPoints){
         if(asteroidDestroyed){
-            this.totalScore += destroyPoints;
+            this.score += destroyPoints;
         }
         this.score += hitPoints;
         this.scoreEl.text(this.score);
