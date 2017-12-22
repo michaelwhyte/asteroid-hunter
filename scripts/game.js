@@ -99,7 +99,7 @@ class Ship {
                     this.lasers[i].index = i;
                     this.lasers[i].el.appendTo(game.gameboard.el)
                                     .css({'left': this.el.position().left + (this.width + 5), 'top': this.el.position().top + (this.height / 2)});
-                    const time = this._duration(Math.abs(this.lasers[i].el.position().left - game.gameboard.width, true), this.lasers[i].speed);
+                    const time = this._duration(Math.abs(this.lasers[i].el.position().left - game.gameboard.width), this.lasers[i].speed, true);
                     this.lasers[i].el.animate({'left': game.gameboard.width}, time, 'linear', () => { this.reload(i); });
                     return true;
                 }
@@ -372,9 +372,6 @@ class Game {
             this.playCount++;
             this.isGameOver = false;
         }
-        // for(let i = 0; i < this.numberOfAsteroids; i++){
-            
-        // }
         for(let i = 0; i < this.numberOfAsteroids; i++){
             setTimeout(()=>{
                 this.asteroids[i] = new Asteroid();
