@@ -188,10 +188,7 @@ class Asteroid {
             .css({'width': this.width,
                   'height': this.height,
                   'left': game.gameboard.width, 
-                  'top': this._genRanNum(0, (game.gameboard.height - this.height))});
-        // This animationend event listener will only fire when the  
-        // flash CSS animation has finished running. This has nothing 
-        // to do with the jQuery animations running on this element          
+                  'top': this._genRanNum(0, (game.gameboard.height - this.height))});         
         this.el.on('animationend', () => { this.el.removeClass('flash'); }); 
     }
 
@@ -380,11 +377,8 @@ class Game {
     _gameLoop(){
 
         this.tickerCounter++;
-        // Check lasers for collision
         this._laserCollision();
-        // Check Ship for collision
         this._shipCollision();
-
         // Run approximately every 10 seconds
         // -> Game runs at 30 frames per second (approximately)
         // 10 seconds = 10 seconds * 30 frames = 300 frames 
@@ -411,7 +405,6 @@ class Game {
             if(laserHit.hit){
                 this.asteroids[laserHit.index].damage(false);
                 if(this.asteroids[laserHit.index].isDestroyed){
-                    //this.asteroids[laserHit.index].explode();
                     this.stats.updateScore(laserHit.points, true, this.asteroids[laserHit.index].destroyValue);
                 }else{
                     this.asteroids[laserHit.index].el.removeClass('flash')
