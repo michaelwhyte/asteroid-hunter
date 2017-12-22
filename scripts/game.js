@@ -437,7 +437,7 @@ class Game {
         obj.y = obj.el.offset().top;
         let index = null;
         let points = 0;
-        let hit = this.asteroids.some((asteroid, i)=>{
+        let hit = this.asteroids.some( (asteroid, i) => {
             if(asteroid.isExploding){
                 index = i;
                 return false;
@@ -453,7 +453,7 @@ class Game {
                 (asteroid.x > (obj.x + obj.width))
             );
         });
-        return { hit, index, points};
+        return { hit, index, points };
     }
 
     _endGame(){
