@@ -33,11 +33,9 @@ class Ship {
         this.x = this.el.offset().left;
         this.y = this.el.offset().top;
         this.speed = 300; // 300 px per second
-        //this.laserTotal = 2;
         this.lasersOnScreen = 0;
         this.maxlasersOnScreen = 2;
         this.lasers = [null, null, null];
-        //this.lives = 3;
         this.isExploding = false;
         this.isInvincible = false;
         this.pressed = false;
