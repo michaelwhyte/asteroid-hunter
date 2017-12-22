@@ -211,14 +211,6 @@ class Asteroid {
         },{ duration: this.rotationSpeed, queue: false, easing: 'linear', complete: () => { this.rotate(); } });
     }
 
-    pause(){
-        this.el.pause();
-    }
-
-    resume(){
-        this.el.resume();
-    }
-
     damage(isShip){
         this.strength--;
         if(this.strength <= 0 || isShip === true){
@@ -483,12 +475,12 @@ const game = new Game();
 const $window = $(window);
 const $btnStart = $('#btn-start');
 
-$btnStart.click(function(){ game.init(false); });
+$btnStart.click(function(){ game.init(false); $(this).attr('disabled', 'disabled'); });
 
 $window.on('keydown', function(e){ game.ship.move(e); game.ship.fire(e); });
 
 $window.on('keyup', function(e){ game.ship.stopMove(e); });
 
-game.modal.btnClose.on('click', function(){ game.modal.close(); });
+game.modal.btnClose.on('click', function(){ game.modal.close(); $btnStart.removeAttr('disabled'); });
 
 game.modal.btnPlayAgain.on('click', function(){ game.modal.close(); game.init(true); });
